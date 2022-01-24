@@ -39,7 +39,7 @@ public class ArraySyntaxes {
 		
 		
 		// Bracket before and bracket after is for declaration
-		
+		 
 		int a1[], a2;
 		a1 = new int[10]; // a1 can refere an array
 		a2 = 256; // a2 is a prinitive integer
