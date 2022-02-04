@@ -76,3 +76,10 @@ public class RegisterServlet extends HttpServlet {
 	}
 
 }
+
+// Assignment1:
+// Use Java's Security Package and Hash the Passwords using SHA technique
+// Explore the API MessageDigest :)
+
+// Assignment2:
+// Implement DAO Design Pattern in this current project :)
