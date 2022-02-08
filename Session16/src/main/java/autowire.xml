@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+	<!-- This configuration is needed if you wish to use AutWiring in Java file -->
+	<context:annotation-config/>
+
+    <bean id="address" class="com.auribises.bean.Address">
+    	<property name="adrsLine" value="2144 B20"/>
+    	<property name="city" value="Ludhiana"/>
+    	<property name="state" value="Punjab"/>
+    	<property name="zipCode" value="141001"/>
+    </bean>
+    
+    <bean id="restRef" class="com.auribises.bean.Restaurant">
+    	<property name="name" value="Johns Cafe Shop"/>
+    	<property name="phone" value="+91 99999 11111"/>
+    	<property name="operatingHours" value="10:00 to 22:00"/>
+    	<property name="ratings" value="4.5"/>
+    	
+    	<!-- Dependency Injection with Setter Method -->
+    	<!-- <property name="address" ref="aRef"/> -->
+    	
+    	<!-- Dependency Injection with with Constructor -->
+    	<!-- <constructor-arg ref="aRef"/> -->
+    	
+    	<property name="searchKeywords">
+    		<list>
+    			<value>Johns Cafe</value>
+    			<value>Cafe Shop</value>
+    			<value>Coffee</value>
+    			<value>Pastry</value>
+    			<value>Cake</value>
+    		</list>
+    	</property>
+    
+    </bean>
+
+</beans>

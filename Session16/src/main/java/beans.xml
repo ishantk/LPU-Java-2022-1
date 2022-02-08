@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="con1" class="com.auribises.bean.Connection" init-method="myInit" destroy-method="myDestroy">  
+    <!-- <bean id="con1" class="com.auribises.bean.Connection" scope="singleton"> -->
+    <!-- <bean id="con1" class="com.auribises.bean.Connection" scope="prototype"> -->
+       <property name="url" value="jdbc:mysql://localhost/estore"/>
+       <property name="username" value="auribises"/>
+       <property name="password" value="password123"/>
+    </bean>
+
+    <!-- <bean id="con2" class="com.auribises.bean.Connection">
+       <property name="url" value="jdbc:mysql://localhost/fooddelivery"/>
+       <property name="username" value="root"/>
+       <property name="password" value="pass123"/>
+    </bean> -->
+
+    <!-- more bean definitions go here -->
+
+	<bean class="com.auribises.bean.PostProcessor"/>
+
+</beans>
