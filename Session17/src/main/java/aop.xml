@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="product" class="com.auribises.bean.Product">  
+       <property name="id" value="101"/>
+       <property name="name" value="iPhone 13 Pro"/>
+       <property name="price" value="80000"/>
+       <property name="brand" value="Apple"/>
+       <property name="stock" value="0"/>
+    </bean>
+    
+    <bean id="befAdv" class="com.auribises.bean.BeforeAdvice"/>
+	<bean id="aftAdv" class="com.auribises.bean.AfterAdvice"/>
+
+	<!-- Configuring the built in ProxyFactoryBean with Advice so as to run them with our business logic method -->
+	<!-- Interceptor Design Pattern -->
+	<bean id="productProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="target" ref="product"/>
+		<property name="interceptorNames">
+			<list>
+				<value>befAdv</value>
+				<value>aftAdv</value>
+			</list>
+		</property>
+	</bean>
+
+</beans>

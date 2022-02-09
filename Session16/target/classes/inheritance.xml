@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="fRef" class="com.auribises.bean.FoodItem">
+    	<property name="name" value="Veggie Pizza"/>
+    	<property name="price" value="300"/>
+    </bean>
+    
+    <!-- Inheritance Relationship Dependency Injection -->
+    <bean id="pRef" class="com.auribises.bean.Pizza" parent="fRef">
+    	<property name="name" value="Veggie Supreme Pizza"/>
+    	<property name="size" value="10"/>
+    	<property name="toppings" value="all veggies, bell peppers, paneer"/>
+    </bean>
+
+</beans>
