@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+
+	<!-- Mapping Customer -->
+   <class name="com.auribises.model.Customer" table="ESTORE_CUSTOMER">
+      <!-- id -> primary key
+      generator class increment -> auto increment -->
+      <id name="cid" column="CID">
+         <generator class="increment"/>
+      </id>
+      <property name="name" column="NAME" />
+      <property name="phone" column="PHONE" />
+      <property name="email" column="EMAIL" />
+      <one-to-one name="address" class="com.auribises.model.Address" cascade="all"/>
+   </class>
+   
+   <!-- Mapping Address -->
+   <class name="com.auribises.model.Address" table="ESTORE_CUSTOMER_ADDRESS">
+      <!-- id -> primary key
+      generator class foreign -->
+      <id name="aid" column="AID">
+         <generator class="foreign">
+         	<param name="property">customer</param>
+         </generator>
+      </id>
+      <property name="adrsLine" column="ADRSLINE" />
+      <property name="city" column="CITY" />
+      <property name="zipCode" column="ZIPCODE" />
+      <one-to-one name="customer" class="com.auribises.model.Customer" cascade="all" constrained="true"/>
+   </class>
+   
+   
+</hibernate-mapping>

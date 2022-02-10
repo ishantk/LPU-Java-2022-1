@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+  
+   <class name="com.auribises.model.Pizza" table="PIZZAS" discriminator-value="pizza">
+      
+      <!-- id -> primary key
+      generator class increment -> auto increment -->
+      <id name="id" column="ID">
+         <generator class="increment"/>
+      </id>
+      
+      <discriminator column="PIZZATYPE" type="string"/>
+      
+      <property name="name" column="NAME" />
+      <property name="price" column="PRICE" />
+      
+      <subclass name="com.auribises.model.VeggiePizza" discriminator-value="veggie-pizza">
+      	 <property name="veggieToppings" column="VEGGIETOPPINGS" />
+     	 <property name="spiceLevel" column="SPICELEVEL" />
+     	 
+     	 <!-- Grand Child
+     	 <subclass></subclass> -->
+     	 
+      </subclass>
+      
+   </class>
+   
+</hibernate-mapping>
